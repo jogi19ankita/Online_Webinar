@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webinar Landing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #E6E6FA;
+        }
+    
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        h4{
+            text-align: center;
+        }
+    
+        h2 {
+            color: #555;
+        }
+    
+        p {
+            color: #777;
+        }
+        
+    
+        form {
+            max-width: 400px;
+            margin: 0px 0px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    
+        input[type="text"],
+        input[type="email"],
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+    
+        input[type="submit"] {
+            background-color: #0a0a0a;
+            color: #fff;
+            cursor: pointer;
+        }
+    
+        input[type="submit"]:hover {
+            background-color: #101011;
+        }
+    
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+    
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+    
+</head>
+<body>
+    <!-- Headline and Introduction -->
+    <h1>Online Webinar Landing Page</h1>
+<h4>Welcome to our webinar landing page.</h4>
+    <h4> Join our upcoming webinars for a personalized learning experience.</h4>
+
+    <!-- Webinar Details -->
+    <h2>Webinar Details</h2>
+    <p>Date: [Date]</p>
+    <p>Time: [Time]</p>
+    <p>Duration: [Duration]</p>
+
+    <!-- Registration Form -->
+    <h2>Register Now</h2>
+    <div class="f1">
+    <form action="registration_handler.php" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <input type="submit" value="Register">
+    </form>
+</div>
+
+    <!-- Confirmation and Reminders (To be shown after successful registration) -->
+    <h2>Thank You for Registering!</h2>
+    <p>You have successfully registered for the webinar. We will send you a confirmation email with further instructions and reminders.</p>
+
+    <!-- Agenda and Speaker Information -->
+    <h2>Agenda</h2>
+    <ul>
+        <li>Session 1: [Topic] (Duration: [Duration])</li>
+        <li>Session 2: [Topic] (Duration: [Duration])</li>
+        <!-- Add more sessions as needed -->
+    </ul>
+
+    <h2>Speaker Information</h2>
+    <p>Name: [Speaker Name]</p>
+    <p>Job Title: [Speaker Job Title]</p>
+    <p>Bio: [Speaker Bio]</p>
+
+    <!-- Thank You Page (To be shown after successful registration) -->
+    <h2>Thank You for Registering!</h2>
+    <p>You have successfully registered for the webinar. We will send you a confirmation email with further instructions and reminders.</p>
+    <script>
+        // Function to handle form submission
+        function handleFormSubmission(event) {
+            event.preventDefault(); // Prevent form submission
+    
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+    
+            // You can add further validation if needed
+    
+            // Display a confirmation message
+            const confirmationMessage = document.createElement('p');
+            confirmationMessage.textContent = `Thank you, ${name}! You have successfully registered for the webinar. We will send you a confirmation email with further instructions and reminders to ${email}.`;
+            confirmationMessage.style.color = '#007BFF';
+            const formContainer = document.querySelector('form');
+            formContainer.innerHTML = ''; // Clear the form
+            formContainer.appendChild(confirmationMessage);
+        }
+    
+        // Attach form submission event listener
+        const registrationForm = document.getElementById('registrationForm');
+        registrationForm.addEventListener('submit', handleFormSubmission);
+    </script>
+    
+</body>
+</html>
